@@ -14,11 +14,31 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepper,MatStepLabel,MatStepperModule,MatHorizontalStepper} from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
+import { LoginComponent } from './components/login/login.component';
+import { PublicarOfertaComponent } from './components/publicar-oferta/publicar-oferta.component';
+import { HomeComponent } from './components/home/home.component';
 
+
+
+import { 
+  MatDatepickerModule,
+} from '@angular/material/datepicker';
+
+
+//MODEUL DE ANGULAR MTERIAL
+import {MatTabsModule} from '@angular/material/tabs';
+
+
+
+/* ORIGINAL */
+//import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    PublicarOfertaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +48,17 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatTabsModule,
+
   
   ],
   providers: [
