@@ -1,1 +1,310 @@
-<p>login works!</p>
+
+
+
+<style type="text/css"  > 
+    .loader,
+    .loader:after {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+    .overlay{
+        position: fixed;
+        opacity:0.8;
+        cursor: pointer;
+      }
+    
+    @media (max-width:720px){
+    .loader{
+      margin: 30px auto;
+      font-size: 10px;
+      top:90%;
+      right:46%;
+      z-index:100;
+      position: absolute;
+      border:2px solid red;
+      text-indent: -9999em;
+      
+      border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+      border-left: 1.1em solid #ffff;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: load8 1.1s infinite linear;
+      animation: load8 1.1s infinite linear;
+    
+    
+    
+    }
+    }
+    
+    
+    .loader {
+      
+      margin: 30px auto;
+      font-size: 10px;
+      top:61%;
+      right:45%;
+      position:fixed;
+      z-index:100;
+      position: absolute;
+      border:2px solid red;
+      text-indent: -9999em;
+      border-top: 1.1em solid rgba(255, 255, 255, 0.5);
+      border-right: 1.1em solid rgba(255, 255, 255, 0.5);
+      border-bottom: 1.1em solid rgba(255, 255, 255, 0.5);
+      border-left: 1.1em solid #7579ff;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation: load8 1.1s infinite linear;
+      animation: load8 1.1s infinite linear;
+    
+      }
+    
+    
+    
+    @-webkit-keyframes load8 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes load8 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    
+    </style>
+  
+  
+  <div id="popup1" class="">
+      <div id="popup2"  class="">
+          <h2>Usuario y/o contraseña incorrecta</h2>
+      <button   (click)="cerrar()"  class="close" >&times;</button>
+    
+          <div class="content">
+          
+      </div>
+      
+      </div>
+  </div>
+  
+  <style>
+  
+  
+  .overlay2{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:3;
+    background: rgba(0, 0, 0, 0.9);
+    transition: opacity 300ms;
+    
+  }
+  
+  #popup2 {
+    position: fixed;
+    top: 45%;
+    bottom: 0;
+    left: 0;
+    height: 130px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    transition: opacity 300ms;
+    opacity: 0; 
+  }
+  
+  
+  .popup {
+    top:50%;
+    margin: 70px auto;
+    padding: 20px;
+    text-align: center;
+    background: #000000;
+    color:#fff;
+    border-radius: 5px;
+    width: 50%;
+    min-height: 100px;
+    
+    position: relative;
+    transition: all 2s ease-in-out;
+  }
+  
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    max-height: 30%;
+    
+  }
+  
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+      top:30%;
+    }
+  }
+  </style>
+  
+  background-color:#f3f3f3 ;
+  
+  <div class="container-login100">
+  
+    
+  <div class="wrap-login100">
+    <form  *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate  [formGroup]="iniciar"  method="post"    class="login100-form validate-form">
+    <!--	<span class="login100-form-logo">
+        <i class="zmdi zmdi-landscape"></i>
+      </span>-->
+  
+      <span class="login100-form-title p-b-34 p-t-27">
+        Iniciar Sesion
+      </span>
+      <div class="form-group  was-validated" [ngClass]="{'has-error':iniciar.get('email').invalid &&
+      (iniciar.get('email').touched || iniciar.get('email').dirty)}">
+                    
+      
+      <div class="wrap-input100 validate-input" data-validate = "Enter username">
+       
+         <input  class="input100" placeholder="Correo electronico"  formControlName="email"  type="email"
+                    required>
+                    <!--[email]="iniciar.get('email')!=''"-->
+  
+        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+      
+      </div>
+      <span 
+      *ngIf="iniciar.get('email').errors?.required  && iniciar.get('email').touched  "
+      class="help-block text-white ">
+      Ingresa tu correo electronico
+      
+      </span>
+      <span  class="text-white"  *ngIf="iniciar.get('email').errors?.email ">
+        Ingrese un email valido Ej:@gmail.com !
+  
+      </span>
+  
+      </div>
+  
+      <div class="form-group  was-validated" [ngClass]="{'has-error':iniciar.get('contraseña').invalid &&
+                    (iniciar.get('contraseña').touched || iniciar.get('contraseña').dirty)}">
+                
+  
+      <div class="wrap-input100 validate-input" data-validate="Enter password">
+        <input formControlName="contraseña" class="input100" type="password" required name="pass" placeholder="Contraseña">
+        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+      </div>
+      <span   *ngIf="iniciar.get('contraseña').errors?.required  && (iniciar.get('contraseña').dirty ||  iniciar.get('contraseña').touched )   "
+      class="alert text-white" >
+      Ingresa tu Contraseña
+                    
+      </span>
+      
+  
+      </div>
+  
+      <div class="contact100-form-checkbox">
+        <input  style="color:#000000" class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+        <label  class="label-checkbox100" for="ckb1">
+          Remember me
+        </label>
+      </div>
+  
+      <div class="container-login100-form-btn">
+        <button type="submit" id="boton-enviar"  class="login100-form-btn">
+          Login
+        </button>
+      </div> 
+      
+  
+      <div class="text-center p-t-90">
+        <a class="txt1" href="#">
+          Forgot Password?
+        </a>
+      </div>
+    </form>
+  </div>
+  
+  </div>
+  
+  
+  <div id="carga"  ></div>
+  
+  
+  <!--
+  
+  <div class="container mt-5">
+    <div class="row">
+        <div class=" col-sm-5 col-12 col-xl-5  col-lg-5 col-md-5  col-xs-6  ml-auto mr-auto"> 
+            <div class="card card-container">
+              <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
+                    #username="ngModel" />
+                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid">
+                    Username is required!
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+                    #password="ngModel" />
+                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.minlength">
+                      Password must be at least 6 characters
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block">
+                    Login
+                  </button>
+                </div>
+                <div class="form-group">
+                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                    Login failed: {{ errorMessage }}
+                  </div>
+                </div>
+              </form>
+          
+              <div class="alert alert-success" *ngIf="isLoggedIn">
+                Logged in as {{ roles }}.
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+  
+  -->
+  

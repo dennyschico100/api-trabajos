@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TokenStorageService } from './Servicios/token-storage.service'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,33 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cliente-trabajo';
+  
+  private roles: string[];
+  isLoggedIn = false;
+  showAdminBoard = false;
+  showModeratorBoard = false;
+  showUserBoard=false;
+  username: string;
+
+  constructor(private tokenStorageService: TokenStorageService
+  ) { }
+
+  ngOnInit() {
+
+
+
+
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard=this.roles.includes('ROLE_USER')
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR')
+      this.username = user.email;
+      console.error(this.tokenStorageService.getToken())
+
+    }
+  }
+
 }

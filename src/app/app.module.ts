@@ -19,6 +19,7 @@ import { PublicarOfertaComponent } from './components/publicar-oferta/publicar-o
 import { HomeComponent } from './components/home/home.component';
 
 
+import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { 
   MatDatepickerModule,
@@ -27,8 +28,17 @@ import {
 
 //MODEUL DE ANGULAR MTERIAL
 import {MatTabsModule} from '@angular/material/tabs';
+import { NavegacionComponent } from './components/navegacion/navegacion.component';
 
 
+import  {MatNativeDateModule, } from "@angular/material/core";
+
+
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './_helpers/AuthInterceptor';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { RegistroCandidatosComponent } from './components/registro-candidatos/registro-candidatos.component';
 
 /* ORIGINAL */
 //import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
@@ -38,14 +48,21 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppComponent,
     LoginComponent,
     PublicarOfertaComponent,
-    HomeComponent
+    HomeComponent,
+    NavegacionComponent,
+    PerfilComponent,
+    RegistroCandidatosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    
+    ReactiveFormsModule,
+    FormsModule,
     MatInputModule,
     MatButtonModule,
+    HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
     MatStepperModule,
@@ -58,10 +75,16 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatStepperModule,
     MatDatepickerModule,
     MatTabsModule,
-
+    CKEditorModule,
+    MatNativeDateModule
   
   ],
   providers: [
+     {
+    provide: HTTP_INTERCEPTORS,
+   useClass: AuthInterceptor,
+   multi: true
+ },
 
 
   ],
