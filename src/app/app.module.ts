@@ -39,6 +39,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './_helpers/AuthInterceptor';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RegistroCandidatosComponent } from './components/registro-candidatos/registro-candidatos.component';
+import { MenuUserComponent } from './components/menu-user/menu-user.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { ListarTrabajosComponent } from './components/listar-trabajos/listar-trabajos.component';
 
 /* ORIGINAL */
 //import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
@@ -51,7 +54,10 @@ import { RegistroCandidatosComponent } from './components/registro-candidatos/re
     HomeComponent,
     NavegacionComponent,
     PerfilComponent,
-    RegistroCandidatosComponent
+    RegistroCandidatosComponent,
+    MenuUserComponent,
+    CategoriasComponent,
+    ListarTrabajosComponent
   ],
   imports: [
     BrowserModule,

@@ -43,7 +43,7 @@ guardar(oferta):Observable<any>{
 }
 
 listarOfertas() {
- //return this.http.get(API_URL); 
+ return this.http.get(API_URL); 
 
 }
 }

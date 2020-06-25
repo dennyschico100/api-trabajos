@@ -6,6 +6,9 @@ import {LoginComponent} from './components/login/login.component'
 import {PublicarOfertaComponent} from  './components/publicar-oferta/publicar-oferta.component'
 import {PerfilComponent} from './components/perfil/perfil.component'
 import { RegistroCandidatosComponent } from './components/registro-candidatos/registro-candidatos.component';
+import {ListarTrabajosComponent} from './components/listar-trabajos/listar-trabajos.component'
+import {MenuUserComponent} from './components/menu-user/menu-user.component'
+
 const routes: Routes = [
 
 
@@ -18,7 +21,11 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   {path:'registro-candidatos',component:RegistroCandidatosComponent },
+  
+  { path: 'user', component: MenuUserComponent },
   { path: 'perfil', component: PerfilComponent },
+  
+  {path:'listar-trabajos',component :ListarTrabajosComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
 ];
