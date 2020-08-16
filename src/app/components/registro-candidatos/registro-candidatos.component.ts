@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { NgForm, FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
@@ -39,7 +39,9 @@ export class RegistroCandidatosComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   sent = false
-  spinner: HTMLElement;
+   /*readonly MAILREGEXP: string = '^[a-z0-9\._%+\-]+@[a-z0-9\.\-]+\.[a-z]{2,3}$';
+...
+  email: ['', [Validators.required, Validators.pattern(this.MAILREGEXP)]], */  spinner: HTMLElement;
 
 
 
